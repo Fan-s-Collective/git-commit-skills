@@ -1,7 +1,7 @@
 {
   "name": "git-commit-skill",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.29.3",
   "description": "An agent skill for writing Conventional Commit messages from staged or unstaged git changes",
   "author": "noisefan <noisefan@163.com>",
