@@ -1,0 +1,4 @@
+interface:
+  display_name: Git Commit
+  short_description: Generate commit messages from repo conventions
+  default_prompt: "Use $git-commit to draft a commit message that follows this repository's convention."
