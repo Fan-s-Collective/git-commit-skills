@@ -1,13 +1,13 @@
 ---
 name: git-commit
-description: Generate Conventional Commits-style git commit messages from repository changes. Use when Codex needs to draft, rewrite, review, or validate a commit message from staged or unstaged diffs, while deriving the correct type, scope, subject, and optional body from the current repository rather than assuming fixed scopes.
+description: Generate Conventional Commits-style git commit messages from repository changes. Use when Codex needs to write, rewrite, review, or validate a commit message from staged or unstaged diffs, while deriving the correct type, scope, subject, and optional body from the current repository rather than assuming fixed scopes.
 ---
 
 # Git Commit
 
 ## Overview
 
-Draft commit messages from actual repository changes. Prefer concise, intention-focused messages over file-by-file diff summaries. Treat `references/commit-convention.md` as the baseline style guide, then adapt scope and wording to the current repository.
+Write commit messages from actual repository changes. Prefer concise, intention-focused messages over file-by-file diff summaries. Treat `references/commit-convention.md` as the baseline style guide, then adapt scope and wording to the current repository.
 
 ## Workflow
 
@@ -15,7 +15,7 @@ Draft commit messages from actual repository changes. Prefer concise, intention-
    - Prefer `git diff --staged` when changes are staged.
    - Use `git diff` when no staged diff exists or when the user asks about unstaged changes.
    - Use `git status --short` to understand file scope.
-   - If the repository contains a commit convention file, read it before drafting. Check likely names such as `COMMIT_CONVENTION.md`, `CONTRIBUTING.md`, `.github/COMMIT_CONVENTION.md`, or `.github/CONTRIBUTING.md`.
+   - If the repository contains a commit convention file, read it before writing the message. Check likely names such as `COMMIT_CONVENTION.md`, `CONTRIBUTING.md`, `.github/COMMIT_CONVENTION.md`, or `.github/CONTRIBUTING.md`.
 
 2. Choose one commit intent.
    - If changes contain unrelated intents, recommend splitting commits.

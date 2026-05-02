@@ -1,42 +1,135 @@
 # git-commit-skill
 
-An agent skill for writing Conventional Commit messages from staged or unstaged git changes.
+An agent skill for generating Conventional Commits-style git commit messages from real repository changes.
 
-## What It Does
+It helps coding agents inspect staged or unstaged diffs, infer the right commit intent, and produce a concise commit message grounded in the current repository instead of generic templates.
 
-`git-commit-skill` helps an AI coding agent inspect Git changes and produce a concise commit message that follows the Conventional Commits format.
+## Install
 
-It is useful when you want commit messages that are:
+Install with the Skills CLI:
 
-- grounded in the actual repository diff
-- written in a consistent Conventional Commits style
-- concise enough for everyday development
-- clear about the changed behavior or project metadata
-
-## Package
-
-This repository is published as a normal npm package while its primary payload is an agent skill.
-
-```sh
-pnpm add git-commit-skill
+```bash
+npx skills add Fan-s-Collective/git-commit-skills
 ```
 
-The package is intended to ship skill files such as `SKILL.md` and related agent resources.
+Install only this skill explicitly:
 
-## Conventional Commits
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit
+```
 
-Generated messages should follow this shape:
+Install globally so it is available across projects:
+
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
+```
+
+### Source Formats
+
+```bash
+# GitHub shorthand
+npx skills add Fan-s-Collective/git-commit-skills
+
+# Full GitHub URL
+npx skills add https://github.com/Fan-s-Collective/git-commit-skills
+
+# Direct path to the skill
+npx skills add https://github.com/Fan-s-Collective/git-commit-skills/tree/main/skills/git-commit
+
+# Any git URL
+npx skills add git@github.com:Fan-s-Collective/git-commit-skills.git
+
+# Local checkout
+npx skills add ./git-commit-skills
+```
+
+### Options
+
+| Option | Description |
+| --- | --- |
+| `-g, --global` | Install to the user skill directory instead of the current project |
+| `-a, --agent <agents...>` | Install for specific agents, such as `codex`, `claude-code`, `cursor`, or `opencode` |
+| `-s, --skill <skills...>` | Install specific skills by name, or use `'*'` for all skills |
+| `-l, --list` | List available skills without installing |
+| `--copy` | Copy files instead of symlinking them |
+| `-y, --yes` | Skip confirmation prompts |
+| `--all` | Install all skills to all agents without prompts |
+
+## Usage
+
+Ask your coding agent to use the skill when you need a commit message:
 
 ```text
-type(scope): summary
+Use $git-commit to generate a commit message for my current changes.
+```
+
+You can also be more specific:
+
+```text
+Use $git-commit to write a commit message from staged changes only.
+```
+
+```text
+Use $git-commit to review this commit message and make it follow the repo convention.
+```
+
+The skill instructs the agent to:
+
+- inspect `git status --short`
+- prefer `git diff --staged` when staged changes exist
+- use `git diff` for unstaged changes when needed
+- read local commit convention files such as `CONTRIBUTING.md` or `COMMIT_CONVENTION.md`
+- choose a Conventional Commits type and repository-specific scope
+- add a body only when it clarifies intent, impact, compatibility, or mixed change types
+
+## Output Format
+
+The generated header follows Conventional Commits:
+
+```text
+<type>(<scope>): <subject>
 ```
 
 Examples:
 
 ```text
-docs: add README for git commit skill
-chore(package): describe package as an agent skill
+docs(readme): document git commit skill usage
 ```
+
+```text
+chore(repo): align package metadata for skill publishing
+```
+
+For mixed or higher-impact changes, the skill may include a body:
+
+```text
+refactor(repo): align release workflow
+
+- refactor: clarify build and publish responsibilities
+- docs: document the updated release process
+```
+
+## Troubleshooting
+
+### No Skills Found
+
+Make sure the repository contains `skills/git-commit/SKILL.md` and that the file has valid YAML frontmatter with both `name` and `description`.
+
+### Skill Not Loading
+
+Verify that the skill was installed to the directory used by your agent. For Codex, project skills are usually installed under `.agents/skills/`, and global skills under `~/.codex/skills/`.
+
+### Generic Commit Messages
+
+Ask the agent to inspect the current diff again, and check whether your repository has a local commit convention file. This skill is designed to derive scope and wording from the actual changed paths and local project conventions.
+
+## Related Links
+
+- [Agent Skills Specification](https://agentskills.io)
+- [Skills Directory](https://skills.sh)
+- [Skills CLI README](https://github.com/vercel-labs/skills/blob/main/README.md)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Codex Skills Documentation](https://developers.openai.com/codex/skills)
 
 ## License
 
