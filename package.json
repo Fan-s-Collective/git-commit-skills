@@ -1,0 +1,55 @@
+{
+  "name": "git-commit-skill",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.29.3",
+  "description": "An agent skill for writing Conventional Commit messages from staged or unstaged git changes",
+  "author": "noisefan <noisefan@163.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/NoiseFan/git-commit-skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:NoiseFan/git-commit-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NoiseFan/git-commit-skill/issues"
+  },
+  "keywords": [
+    "agent-skill",
+    "git",
+    "commit",
+    "conventional-commits"
+  ],
+  "files": [
+    "SKILL.md",
+    "agents"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "release": "bumpp",
+    "prepublishOnly": "pnpm run build",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
+    "bumpp": "^11.0.1",
+    "eslint": "^10.3.0",
+    "lint-staged": "^16.4.0",
+    "simple-git-hooks": "^2.13.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,md,yml,yaml,json}": [
+      "eslint --cache --fix"
+    ]
+  }
+}

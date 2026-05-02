@@ -1,0 +1,10 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
+packages: []
+
+onlyBuiltDependencies:
+  - simple-git-hooks
+
+trustPolicyIgnoreAfter: 604800
