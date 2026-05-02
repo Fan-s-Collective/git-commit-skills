@@ -6,13 +6,13 @@
   "description": "An agent skill for writing Conventional Commit messages from staged or unstaged git changes",
   "author": "noisefan <noisefan@163.com>",
   "license": "MIT",
-  "homepage": "https://github.com/NoiseFan/git-commit-skill#readme",
+  "homepage": "https://github.com/Fan-s-Collective/git-commit-skills#readme",
   "repository": {
     "type": "git",
-    "url": "git+github.com:NoiseFan/git-commit-skill.git"
+    "url": "git+github.com:Fan-s-Collective/git-commit-skills.git"
   },
   "bugs": {
-    "url": "https://github.com/NoiseFan/git-commit-skill/issues"
+    "url": "https://github.com/Fan-s-Collective/git-commit-skills/issues"
   },
   "keywords": [
     "agent-skill",
