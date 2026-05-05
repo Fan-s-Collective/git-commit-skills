@@ -24,6 +24,20 @@ Install globally so it is available across projects:
 npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
 ```
 
+## Upgrade
+
+Upgrade the project-local installation:
+
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit
+```
+
+Upgrade the global installation:
+
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
+```
+
 ### Source Formats
 
 ```bash
