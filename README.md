@@ -4,7 +4,7 @@ An agent skill for generating Conventional Commits-style git commit messages fro
 
 It helps coding agents inspect staged or unstaged diffs, infer the right commit intent, and produce a concise commit message grounded in the current repository instead of generic templates.
 
-## Install
+## Install & Upgrade
 
 Install with the Skills CLI:
 
@@ -19,20 +19,6 @@ npx skills add Fan-s-Collective/git-commit-skills --skill git-commit
 ```
 
 Install globally so it is available across projects:
-
-```bash
-npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
-```
-
-## Upgrade
-
-Upgrade the project-local installation:
-
-```bash
-npx skills add Fan-s-Collective/git-commit-skills --skill git-commit
-```
-
-Upgrade the global installation:
 
 ```bash
 npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
