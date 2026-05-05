@@ -75,10 +75,9 @@ feat(auth): add session refresh flow
 ```
 
 ```text
-refactor(repo): align release workflow
+refactor: align release workflow
 
 - refactor: 收敛构建与发布脚本的职责边界
 - fix: 修正缺少版本号时的默认值异常
 - docs: 补充新的发布流程说明
 ```
-

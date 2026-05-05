@@ -97,13 +97,13 @@ docs(readme): document git commit skill usage
 ```
 
 ```text
-chore(repo): align package metadata for skill publishing
+chore: align package metadata for skill publishing
 ```
 
 For mixed or higher-impact changes, the skill may include a body:
 
 ```text
-refactor(repo): align release workflow
+refactor: align release workflow
 
 - refactor: clarify build and publish responsibilities
 - docs: document the updated release process
