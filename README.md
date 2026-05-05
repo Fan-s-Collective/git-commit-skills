@@ -24,6 +24,20 @@ Install globally so it is available across projects:
 npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
 ```
 
+## Upgrade
+
+Upgrade the project-local installation:
+
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit
+```
+
+Upgrade the global installation:
+
+```bash
+npx skills add Fan-s-Collective/git-commit-skills --skill git-commit --global
+```
+
 ### Source Formats
 
 ```bash
@@ -97,13 +111,13 @@ docs(readme): document git commit skill usage
 ```
 
 ```text
-chore(repo): align package metadata for skill publishing
+chore: align package metadata for skill publishing
 ```
 
 For mixed or higher-impact changes, the skill may include a body:
 
 ```text
-refactor(repo): align release workflow
+refactor: align release workflow
 
 - refactor: clarify build and publish responsibilities
 - docs: document the updated release process

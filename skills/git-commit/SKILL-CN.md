@@ -11,6 +11,7 @@
    - 没有暂存改动，或用户明确要求查看未暂存改动时，看 `git diff`。
    - 用 `git status --short` 判断改动范围。
    - 如果仓库里有自己的提交规范，先读取它。常见文件包括 `COMMIT_CONVENTION.md`、`CONTRIBUTING.md`、`.github/COMMIT_CONVENTION.md`、`.github/CONTRIBUTING.md`。
+   - 用 `git log --format=%s -n 20` 查看最近的提交标题，判断仓库惯用的输出语言。若历史提交存在明显主导语种，则沿用该语种；若近期提交标题语种混杂、看不出明确主导语种，或没有历史提交、读取历史失败等异常情况，则默认使用英文。
 
 2. 选择一个提交意图。
    - 如果改动包含多个无关意图，建议拆分提交。
@@ -58,6 +59,8 @@
 
 `subject` 直接写本次修改的核心意图，保持简洁、具体、偏动作。避免 `update`、`fix bug`、`optimize code` 这类空泛标题。
 
+输出语言需要参考仓库最近的提交历史。若存在明确主导语种，则提交信息沿用该语种；若近期历史语种混杂或风格无明显规律，或没有历史提交、读取历史失败等异常情况，则默认使用英文。
+
 需要 body 时：
 
 - 说明修改意图、影响面和必要背景。
@@ -75,10 +78,9 @@ feat(auth): add session refresh flow
 ```
 
 ```text
-refactor(repo): align release workflow
+refactor: align release workflow
 
 - refactor: 收敛构建与发布脚本的职责边界
 - fix: 修正缺少版本号时的默认值异常
 - docs: 补充新的发布流程说明
 ```
-

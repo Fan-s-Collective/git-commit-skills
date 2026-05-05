@@ -16,6 +16,7 @@ Write commit messages from actual repository changes. Prefer concise, intention-
    - Use `git diff` when no staged diff exists or when the user asks about unstaged changes.
    - Use `git status --short` to understand file scope.
    - If the repository contains a commit convention file, read it before writing the message. Check likely names such as `COMMIT_CONVENTION.md`, `CONTRIBUTING.md`, `.github/COMMIT_CONVENTION.md`, or `.github/CONTRIBUTING.md`.
+   - Inspect recent commit subjects with `git log --format=%s -n 20` to infer the repository's preferred output language. Follow the dominant language used in history. If recent commit subjects are mixed with no clear dominant language, or if there is no commit history or another error prevents inspection, default to English.
 
 2. Choose one commit intent.
    - If changes contain unrelated intents, recommend splitting commits.
@@ -63,6 +64,8 @@ If no meaningful scope is required by the repository's convention, omit it only 
 
 Write the subject as the core intent of the change. Keep it short, concrete, and action-oriented. Avoid vague subjects such as `update`, `fix bug`, or `optimize code`.
 
+Match the output language to the repository's recent commit history. Use the dominant language when it is clear. If the recent history is inconsistent or mixed, or if there is no commit history or another inspection failure, write the commit message in English by default.
+
 Write the body when useful:
 
 - Describe intent, impact, and necessary background.
@@ -80,7 +83,7 @@ feat(auth): add session refresh flow
 ```
 
 ```text
-refactor(repo): align release workflow
+refactor: align release workflow
 
 - refactor: 收敛构建与发布脚本的职责边界
 - fix: 修正缺少版本号时的默认值异常
